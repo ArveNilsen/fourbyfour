@@ -1,5 +1,8 @@
 import allImages from "../images/imageArrays.js";
 
+const HEIGHT = 4;
+const WIDTH = 4;
+
 const createGrid = (arr) => {
   const gridContainer = document.createElement("div");
   gridContainer.classList = "grid-container";
@@ -9,12 +12,12 @@ const createGrid = (arr) => {
 
   let counter = 0;
 
-  for (let size = 4; size > 0; size -= 1) {
+  for (let sizeHeight = HEIGHT; sizeHeight > 0; sizeHeight -= 1) {
     let rowContainer = document.createElement("div");
     rowContainer.classList = "row-container";
     gridContainer.appendChild(rowContainer);
 
-    for (let size2 = 4; size2 > 0; size2 -= 1) {
+    for (let sizeWidth = WIDTH; sizeWidth > 0; sizeWidth -= 1) {
       let cell = document.createElement("div");
       cell.style.backgroundColor = `rgb(${arr[counter]})`;
       cell.classList = "cell";
@@ -37,12 +40,12 @@ const createGridSolved = (arr) => {
     counter1 = 1,
     counter2 = 2;
 
-  for (let size = 4; size > 0; size--) {
+  for (let sizeHeight = HEIGHT; sizeHeight > 0; sizeHeight -= 1) {
     let rowContainer = document.createElement("div");
     rowContainer.classList = "row-container";
     gridContainerSolved.appendChild(rowContainer);
 
-    for (let size2 = 4; size2 > 0; size2--) {
+    for (let sizeWidth = WIDTH; sizeWidth > 0; sizeWidth -= 1) {
       let cell = document.createElement("div");
       cell.style.backgroundColor = `rgb(${arr[counter0]}, ${arr[counter1]}, ${arr[counter2]}`;
       cell.classList = "cell";
