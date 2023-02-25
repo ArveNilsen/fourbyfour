@@ -1,6 +1,6 @@
 import allImages from "../images/imageArrays.js";
 
-function createGrid(arr) {
+const createGrid = (arr) => {
   const gridContainer = document.createElement("div");
   gridContainer.classList = "grid-container";
 
@@ -24,9 +24,9 @@ function createGrid(arr) {
       counter += 1;
     }
   }
-}
+};
 
-function createGridSolved(arr) {
+const createGridSolved = (arr) => {
   const gridContainerSolved = document.createElement("div");
   gridContainerSolved.classList = "grid-container";
 
@@ -54,30 +54,34 @@ function createGridSolved(arr) {
       counter2 += 3;
     }
   }
-}
+};
 
-function solveImage(arr) {
+const solveImage = (arr) => {
   return arr
     .flat()
     .map((x) => lowToHighBinary(x))
     .map((x) => parseInt(x, 2));
-}
+};
 
-function lowToHighBinary(decimal) {
+const lowToHighBinary = (decimal) => {
   let toBin = decimal.toString(2);
 
   while (toBin.length > 4) {
     toBin = toBin.substring(1);
   }
   return `${toBin}0000`;
-}
+};
 
-function chooseImage(arr) {
+const chooseImage = (arr) => {
   createGrid(arr);
   const arrayOfImage1SolvedFull = solveImage(arr);
   createGridSolved(arrayOfImage1SolvedFull);
-}
+};
 
-for (let element of allImages) {
-  chooseImage(element);
-}
+const main = () => {
+  for (let element of allImages) {
+    chooseImage(element);
+  }
+};
+
+main();
